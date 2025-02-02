@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ student.name }} Details{% endblock %}
+
+{% block content %}
+<h2>Student Details</h2>
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">{{ student.name }}</h5>
+        <p class="card-text">Email: {{ student.email }}</p>
+        <p class="card-text">Phone: {{ student.phone_number }}</p>
+        <p class="card-text">Course: {{ student.course }}</p>
+        <a href="{% url 'student_update' student.pk %}" class="btn btn-warning">Edit</a>
+        <a href="{% url 'student_delete' student.pk %}" class="btn btn-danger">Delete</a>
+    </div>
+</div>
+<a href="{% url 'student_list' %}" class="btn btn-secondary mt-3">Back to List</a>
+{% endblock %}
